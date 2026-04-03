@@ -1,4 +1,11 @@
-import requests
+import socket
+
+target = "127.0.0.1"
 
 for i in range(50):
-    requests.get("http://example.com")
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+        s.connect((target, 80))
+    except:
+        pass
+    s.close()

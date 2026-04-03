@@ -1,10 +1,29 @@
-from scapy.all import sniff, IP
+from scapy.all import sniff, IP, TCP, UDP
 
-def capture_packets(callback):
-    def process(packet):
-        if IP in packet:
-            src = packet[IP].src
-            dst = packet[IP].dst
-            callback(src, dst)
+def process_packet(packet):
+    if IP in packet:
+        src = packet[IP].src
+        dst = packet[IP].dst
 
-    sniff(prn=process, count=50)
+        protocol = "Other"
+        port = None
+
+        if TCP in packet:
+            protocol = "TCP"
+            port = packet[TCP].dport
+        elif UDP in packet:
+            protocol = "UDP"
+            port = packet[UDP].dport
+
+        return [src, dst, protocol, port]
+
+def start_sniffing():
+    packets = sniff(count=20)
+    data = []
+
+    for p in packets:
+        result = process_packet(p)
+        if result:
+            data.append(result)
+
+    return data
