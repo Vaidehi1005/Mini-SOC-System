@@ -1,14 +1,10 @@
-from sniffer import start_sniffing
+from attack import generate_attack_traffic
 from ids import detect_attacks
 
-print("Starting packet capture...")
+traffic = generate_attack_traffic("Mixed Attack Demo", count=36)
+alerts = detect_attacks(traffic)
 
-data = start_sniffing()
-
-print("Captured Data:")
-print(data)
-
-alerts = detect_attacks(data)
-
-print("\nDetected Alerts:")
-print(alerts)
+print("Traffic sample size:", len(traffic))
+print("Detected alerts:", len(alerts))
+for alert in alerts:
+    print(f"{alert['id']} | {alert['severity']} | {alert['rule_name']} | {alert['src_ip']}")
