@@ -27,9 +27,10 @@ def apply_theme() -> None:
         :root {
             --soc-bg: #f3f7f4;
             --soc-panel: rgba(255, 255, 255, 0.88);
-            --soc-ink: #16312b;
-            --soc-muted: #5f736c;
+            --soc-ink: #111111;
+            --soc-muted: #3f4a46;
             --soc-accent: #1d7d5f;
+            --soc-accent-soft: #eef6f2;
             --soc-shadow: 0 14px 34px rgba(22, 49, 43, 0.10);
         }
 
@@ -48,20 +49,25 @@ def apply_theme() -> None:
             letter-spacing: -0.02em;
         }
 
+        p, label, .stMarkdown, .stCaption {
+            color: var(--soc-ink) !important;
+        }
+
         [data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #16312b 0%, #21483f 100%);
+            background: linear-gradient(180deg, #fbfdfb 0%, #eef4ef 100%);
+            border-right: 1px solid rgba(17, 17, 17, 0.08);
         }
 
         [data-testid="stSidebar"] * {
-            color: #f7fbf8 !important;
+            color: #111111 !important;
         }
 
         .hero {
-            background: linear-gradient(135deg, rgba(22, 49, 43, 0.96), rgba(29, 125, 95, 0.88));
-            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(238, 246, 242, 0.96));
+            border: 1px solid rgba(17, 17, 17, 0.08);
             border-radius: 26px;
             box-shadow: var(--soc-shadow);
-            color: #f8fffb;
+            color: var(--soc-ink);
             display: grid;
             gap: 1rem;
             grid-template-columns: 2fr 1fr;
@@ -70,11 +76,11 @@ def apply_theme() -> None:
         }
 
         .hero-kicker {
+            color: var(--soc-muted);
             font-size: 0.82rem;
             font-weight: 700;
             letter-spacing: 0.14em;
             margin-bottom: 0.7rem;
-            opacity: 0.82;
             text-transform: uppercase;
         }
 
@@ -87,14 +93,14 @@ def apply_theme() -> None:
         }
 
         .hero-text {
-            color: rgba(248, 255, 251, 0.88);
+            color: var(--soc-ink);
             margin-top: 0.8rem;
             max-width: 56rem;
         }
 
         .hero-panel {
-            background: rgba(255, 255, 255, 0.10);
-            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(238, 246, 242, 0.95);
+            border: 1px solid rgba(17, 17, 17, 0.08);
             border-radius: 20px;
             display: flex;
             flex-direction: column;
@@ -104,20 +110,21 @@ def apply_theme() -> None:
         }
 
         .status-label {
+            color: var(--soc-muted);
             font-size: 0.84rem;
             font-weight: 600;
-            opacity: 0.78;
             text-transform: uppercase;
         }
 
         .status-value {
+            color: var(--soc-ink);
             font-family: "Space Grotesk", sans-serif;
             font-size: 1.4rem;
             font-weight: 700;
         }
 
         .status-note {
-            color: rgba(248, 255, 251, 0.84);
+            color: var(--soc-ink);
             font-size: 0.92rem;
         }
 
@@ -149,6 +156,94 @@ def apply_theme() -> None:
         .module-note {
             color: var(--soc-muted);
             font-size: 0.92rem;
+        }
+
+        .section-header {
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(17, 17, 17, 0.08);
+            border-radius: 20px;
+            box-shadow: var(--soc-shadow);
+            margin: 1.35rem 0 1rem;
+            padding: 1rem 1.2rem;
+        }
+
+        .section-kicker {
+            color: var(--soc-muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.35rem;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            color: var(--soc-ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+        }
+
+        .section-note {
+            color: var(--soc-ink);
+            font-size: 0.95rem;
+            margin-top: 0.45rem;
+        }
+
+        .stButton > button,
+        .stDownloadButton > button {
+            background: #ffffff;
+            border: 1px solid rgba(17, 17, 17, 0.14);
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(17, 17, 17, 0.08);
+            color: #111111;
+            font-size: 0.96rem;
+            font-weight: 700;
+            padding: 0.6rem 1rem;
+        }
+
+        .stButton > button:hover,
+        .stDownloadButton > button:hover {
+            background: var(--soc-accent-soft);
+            border-color: rgba(29, 125, 95, 0.45);
+            color: #111111;
+        }
+
+        .stButton > button:focus,
+        .stDownloadButton > button:focus {
+            border-color: #1d7d5f;
+            box-shadow: 0 0 0 0.18rem rgba(29, 125, 95, 0.18);
+            color: #111111;
+        }
+
+        [data-testid="stSidebar"] .stButton > button,
+        [data-testid="stSidebar"] .stDownloadButton > button {
+            background: #ffffff !important;
+            color: #111111 !important;
+        }
+
+        [data-testid="stSidebar"] .stButton > button p,
+        [data-testid="stSidebar"] .stDownloadButton > button p,
+        [data-testid="stSidebar"] .stButton > button span,
+        [data-testid="stSidebar"] .stDownloadButton > button span {
+            color: #111111 !important;
+        }
+
+        .stTextInput input,
+        .stTextArea textarea,
+        .stSelectbox div[data-baseweb="select"] > div,
+        .stMultiSelect div[data-baseweb="select"] > div {
+            background: rgba(255, 255, 255, 0.92);
+            color: #111111 !important;
+        }
+
+        [data-testid="stMetricLabel"],
+        [data-testid="stMetricLabel"] *,
+        [data-testid="stMetricValue"],
+        [data-testid="stMetricValue"] *,
+        [data-testid="stFileUploaderDropzone"] *,
+        .stAlert,
+        .stAlert * {
+            color: #111111 !important;
         }
 
         @media (max-width: 960px) {
@@ -301,6 +396,19 @@ def render_stat_card(label: str, value: str, note: str) -> None:
     )
 
 
+def render_section_header(kicker: str, title: str, note: str) -> None:
+    st.markdown(
+        f"""
+        <div class="section-header">
+            <div class="section-kicker">{kicker}</div>
+            <div class="section-title">{title}</div>
+            <div class="section-note">{note}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 apply_theme()
 initialize_state()
 
@@ -401,8 +509,7 @@ st.markdown(
             <div class="hero-kicker">Integrated Cyber Security Monitoring and Threat Detection System</div>
             <div class="hero-title">Mini SOC Platform</div>
             <div class="hero-text">
-                Centralized traffic monitoring, rule-based intrusion detection, vulnerability checks,
-                log review, and secure file handling in one Python dashboard.
+                Traffic monitoring, attack simulation, threat review, web scanning, and secure file handling are now all visible on one page.
             </div>
         </div>
         <div class="hero-panel">
@@ -439,240 +546,240 @@ with card_cols[3]:
         f"{finding_count} total open findings across IDS and scanner modules",
     )
 
-overview_tab, threat_tab, scanner_tab, transfer_tab, mapping_tab = st.tabs(
-    [
-        "Overview",
-        "Threat Center",
-        "Vulnerability Scanner",
-        "Secure Transfer",
-        "Project Mapping",
-    ]
+render_section_header(
+    "Overview",
+    "Live Traffic Overview",
+    "This section shows the active traffic feed, protocol distribution, and high-activity sources.",
 )
 
-with overview_tab:
-    st.subheader("Live Traffic Overview")
-    st.caption("This view shows the active traffic feed, protocol distribution, and high-activity sources.")
-
-    chart_col, protocol_col = st.columns([1.6, 1.0])
-    with chart_col:
-        if not traffic_df.empty and traffic_df["timestamp"].notna().any():
-            timeline_df = (
-                traffic_df.sort_values("timestamp")
-                .set_index("timestamp")
-                .resample("30s")
-                .size()
-                .rename("events")
-                .to_frame()
-            )
-            st.line_chart(timeline_df)
-        else:
-            st.info("No timestamped traffic is available yet.")
-
-    with protocol_col:
-        protocol_counts = traffic_df["protocol"].value_counts().to_frame(name="count")
-        if not protocol_counts.empty:
-            st.bar_chart(protocol_counts)
-        else:
-            st.info("Protocol distribution will appear after traffic is loaded.")
-
-    top_sources_col, top_ports_col = st.columns(2)
-    with top_sources_col:
-        st.markdown("#### Top Source IPs")
-        source_counts = (
-            traffic_df["src_ip"].value_counts().head(8).rename_axis("src_ip").reset_index(name="events")
-            if not traffic_df.empty
-            else pd.DataFrame(columns=["src_ip", "events"])
+chart_col, protocol_col = st.columns([1.6, 1.0])
+with chart_col:
+    if not traffic_df.empty and traffic_df["timestamp"].notna().any():
+        timeline_df = (
+            traffic_df.sort_values("timestamp")
+            .set_index("timestamp")
+            .resample("30s")
+            .size()
+            .rename("events")
+            .to_frame()
         )
-        st.dataframe(source_counts, width="stretch", hide_index=True)
-
-    with top_ports_col:
-        st.markdown("#### Most Active Ports")
-        port_counts = (
-            traffic_df.dropna(subset=["port"])["port"]
-            .astype(int)
-            .value_counts()
-            .head(8)
-            .rename_axis("port")
-            .reset_index(name="events")
-            if not traffic_df.empty
-            else pd.DataFrame(columns=["port", "events"])
-        )
-        st.dataframe(port_counts, width="stretch", hide_index=True)
-
-    st.markdown("#### Traffic Records")
-    st.dataframe(filtered_traffic_df, width="stretch", hide_index=True)
-
-with threat_tab:
-    st.subheader("Threat Detection and Log Monitoring")
-    st.caption("Alerts are generated by rule-based detections for traffic spikes, brute force patterns, scans, and unauthorized access.")
-
-    if filtered_alert_df.empty:
-        st.success("No IDS rules are triggered for the current traffic window.")
+        st.line_chart(timeline_df)
     else:
-        st.dataframe(filtered_alert_df, width="stretch", hide_index=True)
-        st.download_button(
-            "Download Alert Report",
-            data=filtered_alert_df.to_csv(index=False).encode("utf-8"),
-            file_name="soc_alert_report.csv",
-            mime="text/csv",
-        )
+        st.info("No timestamped traffic is available yet.")
 
-    severity_col, logs_col = st.columns([1.0, 1.3])
-    with severity_col:
-        st.markdown("#### Severity Distribution")
-        if not filtered_alert_df.empty:
-            severity_chart = (
-                filtered_alert_df["severity"]
-                .value_counts()
-                .reindex(severity_options, fill_value=0)
-                .to_frame(name="count")
-            )
-            st.bar_chart(severity_chart)
-        else:
-            st.info("Severity distribution appears when alerts are present.")
+with protocol_col:
+    protocol_counts = traffic_df["protocol"].value_counts().to_frame(name="count")
+    if not protocol_counts.empty:
+        st.bar_chart(protocol_counts)
+    else:
+        st.info("Protocol distribution will appear after traffic is loaded.")
 
-    with logs_col:
-        st.markdown("#### Centralized Logs")
-        log_df = read_logs(limit=200)
-        st.dataframe(log_df, width="stretch", hide_index=True)
+top_sources_col, top_ports_col = st.columns(2)
+with top_sources_col:
+    st.markdown("#### Top Source IPs")
+    source_counts = (
+        traffic_df["src_ip"].value_counts().head(8).rename_axis("src_ip").reset_index(name="events")
+        if not traffic_df.empty
+        else pd.DataFrame(columns=["src_ip", "events"])
+    )
+    st.dataframe(source_counts, width="stretch", hide_index=True)
 
-with scanner_tab:
-    st.subheader("Defensive Web Vulnerability Scanner")
-    st.caption("The scanner runs lightweight checks for reflection, SQL-style error exposure, risky methods, and missing headers.")
+with top_ports_col:
+    st.markdown("#### Most Active Ports")
+    port_counts = (
+        traffic_df.dropna(subset=["port"])["port"]
+        .astype(int)
+        .value_counts()
+        .head(8)
+        .rename_axis("port")
+        .reset_index(name="events")
+        if not traffic_df.empty
+        else pd.DataFrame(columns=["port", "events"])
+    )
+    st.dataframe(port_counts, width="stretch", hide_index=True)
 
-    scan_target = st.text_input(
-        "Target URL",
-        value=st.session_state.scan_target,
-        placeholder="https://example.com",
+st.markdown("#### Traffic Records")
+st.dataframe(filtered_traffic_df, width="stretch", hide_index=True)
+
+render_section_header(
+    "Threat Monitor",
+    "Threat Detection and Log Monitoring",
+    "Alerts are generated by rule-based detections for traffic spikes, brute force patterns, scans, and unauthorized access.",
+)
+
+if filtered_alert_df.empty:
+    st.success("No IDS rules are triggered for the current traffic window.")
+else:
+    st.dataframe(filtered_alert_df, width="stretch", hide_index=True)
+    st.download_button(
+        "Download Alert Report",
+        data=filtered_alert_df.to_csv(index=False).encode("utf-8"),
+        file_name="soc_alert_report.csv",
+        mime="text/csv",
     )
 
-    if st.button("Run Defensive Scan", use_container_width=True):
-        st.session_state.scan_target = scan_target
-        st.session_state.scan_results = scan_url(scan_target)
-        append_log_records(
-            [
-                {
-                    "timestamp": result["timestamp"],
-                    "category": "scanner",
-                    "severity": result["severity"],
-                    "event": result["name"],
-                    "source": scan_target or "-",
-                    "details": result["details"],
-                }
-                for result in st.session_state.scan_results
-            ]
+severity_col, logs_col = st.columns([1.0, 1.3])
+with severity_col:
+    st.markdown("#### Severity Distribution")
+    if not filtered_alert_df.empty:
+        severity_chart = (
+            filtered_alert_df["severity"]
+            .value_counts()
+            .reindex(severity_options, fill_value=0)
+            .to_frame(name="count")
         )
-
-    scan_results = st.session_state.scan_results
-    scan_summary = summarize_scan_results(scan_results)
-
-    summary_cols = st.columns(3)
-    summary_cols[0].metric("Checks Run", scan_summary["total_checks"])
-    summary_cols[1].metric("Findings", scan_summary["finding_count"])
-    summary_cols[2].metric("High Severity", scan_summary["high_severity_count"])
-
-    if scan_results:
-        scan_df = pd.DataFrame(scan_results)
-        scan_df["timestamp"] = pd.to_datetime(scan_df["timestamp"], errors="coerce")
-        st.dataframe(scan_df, width="stretch", hide_index=True)
+        st.bar_chart(severity_chart)
     else:
-        st.info("Run a scan to populate the vulnerability report.")
+        st.info("Severity distribution appears when alerts are present.")
 
-with transfer_tab:
-    st.subheader("Secure File Transfer")
-    st.caption("The encryption module uses Fernet-based authenticated encryption, which protects both confidentiality and integrity.")
+with logs_col:
+    st.markdown("#### Centralized Logs")
+    log_df = read_logs(limit=200)
+    st.dataframe(log_df, width="stretch", hide_index=True)
 
-    encrypt_col, decrypt_col = st.columns(2)
+render_section_header(
+    "Web Scanner",
+    "Defensive Web Vulnerability Scanner",
+    "The scanner runs lightweight checks for reflection, SQL-style error exposure, risky methods, and missing headers.",
+)
 
-    with encrypt_col:
-        st.markdown("#### Encrypt a File")
-        file_to_encrypt = st.file_uploader("Upload a file", key="encrypt_upload")
-        if file_to_encrypt and st.button("Encrypt File", key="encrypt_button", use_container_width=True):
-            encrypted_data, key = encrypt_with_generated_key(file_to_encrypt.getvalue())
-            st.success("File encrypted successfully.")
-            st.code(key.decode("utf-8"), language="text")
-            st.download_button(
-                "Download Encrypted File",
-                data=encrypted_data,
-                file_name=f"{file_to_encrypt.name}.soc",
-                mime="application/octet-stream",
-            )
+scan_target = st.text_input(
+    "Target URL",
+    value=st.session_state.scan_target,
+    placeholder="https://example.com",
+)
 
-    with decrypt_col:
-        st.markdown("#### Decrypt a File")
-        file_to_decrypt = st.file_uploader("Upload an encrypted file", key="decrypt_upload")
-        user_key = st.text_input("Enter decryption key", key="decrypt_key")
-        if (
-            file_to_decrypt
-            and user_key
-            and st.button("Decrypt File", key="decrypt_button", use_container_width=True)
-        ):
-            try:
-                decrypted_data = decrypt_file(file_to_decrypt.getvalue(), user_key)
-                original_name = file_to_decrypt.name.replace(".soc", "")
-                st.success("File decrypted successfully.")
-                st.download_button(
-                    "Download Decrypted File",
-                    data=decrypted_data,
-                    file_name=original_name,
-                    mime="application/octet-stream",
-                )
-            except ValueError as error:
-                st.error(str(error))
-
-with mapping_tab:
-    st.subheader("Project to PDF Mapping")
-    st.caption("This table shows how the improved codebase now lines up with the modules listed in your project PDF.")
-
-    mapping_df = pd.DataFrame(
+if st.button("Run Defensive Scan", use_container_width=True):
+    st.session_state.scan_target = scan_target
+    st.session_state.scan_results = scan_url(scan_target)
+    append_log_records(
         [
             {
-                "PDF Module": "Network Traffic Monitoring",
-                "Implementation": "sniffer.py + dashboard overview",
-                "Status": "Complete",
-                "Highlights": "Live capture fallback, source and port analysis, protocol charts",
-            },
-            {
-                "PDF Module": "Intrusion Detection System",
-                "Implementation": "ids.py + threat center",
-                "Status": "Complete",
-                "Highlights": "DoS, port scan, brute force, unauthorized access rules",
-            },
-            {
-                "PDF Module": "Web Vulnerability Scanner",
-                "Implementation": "scanner.py + scanner tab",
-                "Status": "Complete",
-                "Highlights": "Reflection checks, SQL-style error handling, headers, methods",
-            },
-            {
-                "PDF Module": "Log Monitoring and Alerts",
-                "Implementation": "logs.txt + threat center",
-                "Status": "Complete",
-                "Highlights": "Structured logs, alert report export, centralized review panel",
-            },
-            {
-                "PDF Module": "Secure File Transfer",
-                "Implementation": "encryption.py + transfer tab",
-                "Status": "Complete",
-                "Highlights": "Authenticated encryption with decrypt and download flow",
-            },
-            {
-                "PDF Module": "Attack Simulation",
-                "Implementation": "attack.py + sidebar controls",
-                "Status": "Complete",
-                "Highlights": "Safe demo scenarios for port scan, brute force, DoS, and mixed traffic",
-            },
+                "timestamp": result["timestamp"],
+                "category": "scanner",
+                "severity": result["severity"],
+                "event": result["name"],
+                "source": scan_target or "-",
+                "details": result["details"],
+            }
+            for result in st.session_state.scan_results
         ]
     )
-    st.dataframe(mapping_df, width="stretch", hide_index=True)
 
-    st.markdown("#### Demo Flow")
-    st.markdown(
-        """
-        1. Load `Sample Baseline` traffic to show normal monitoring.
-        2. Switch to `Attack Simulation` and choose `Mixed Attack Demo` to generate alerts.
-        3. Open `Threat Center` to review IDS findings and exported alert reports.
-        4. Use `Vulnerability Scanner` for a lightweight defensive scan of a demo web app.
-        5. Use `Secure Transfer` to encrypt and decrypt a file during the presentation.
-        """
-    )
+scan_results = st.session_state.scan_results
+scan_summary = summarize_scan_results(scan_results)
+
+summary_cols = st.columns(3)
+summary_cols[0].metric("Checks Run", scan_summary["total_checks"])
+summary_cols[1].metric("Findings", scan_summary["finding_count"])
+summary_cols[2].metric("High Severity", scan_summary["high_severity_count"])
+
+if scan_results:
+    scan_df = pd.DataFrame(scan_results)
+    scan_df["timestamp"] = pd.to_datetime(scan_df["timestamp"], errors="coerce")
+    st.dataframe(scan_df, width="stretch", hide_index=True)
+else:
+    st.info("Run a scan to populate the vulnerability report.")
+
+render_section_header(
+    "Secure Files",
+    "Secure File Transfer",
+    "The encryption module uses Fernet-based authenticated encryption, which protects both confidentiality and integrity.",
+)
+
+encrypt_col, decrypt_col = st.columns(2)
+
+with encrypt_col:
+    st.markdown("#### Encrypt a File")
+    file_to_encrypt = st.file_uploader("Upload a file", key="encrypt_upload")
+    if file_to_encrypt and st.button("Encrypt File", key="encrypt_button", use_container_width=True):
+        encrypted_data, key = encrypt_with_generated_key(file_to_encrypt.getvalue())
+        st.success("File encrypted successfully.")
+        st.code(key.decode("utf-8"), language="text")
+        st.download_button(
+            "Download Encrypted File",
+            data=encrypted_data,
+            file_name=f"{file_to_encrypt.name}.soc",
+            mime="application/octet-stream",
+        )
+
+with decrypt_col:
+    st.markdown("#### Decrypt a File")
+    file_to_decrypt = st.file_uploader("Upload an encrypted file", key="decrypt_upload")
+    user_key = st.text_input("Enter decryption key", key="decrypt_key")
+    if (
+        file_to_decrypt
+        and user_key
+        and st.button("Decrypt File", key="decrypt_button", use_container_width=True)
+    ):
+        try:
+            decrypted_data = decrypt_file(file_to_decrypt.getvalue(), user_key)
+            original_name = file_to_decrypt.name.replace(".soc", "")
+            st.success("File decrypted successfully.")
+            st.download_button(
+                "Download Decrypted File",
+                data=decrypted_data,
+                file_name=original_name,
+                mime="application/octet-stream",
+            )
+        except ValueError as error:
+            st.error(str(error))
+
+render_section_header(
+    "PDF Mapping",
+    "Project to PDF Mapping",
+    "This table shows how the improved codebase lines up with the modules listed in your project PDF.",
+)
+
+mapping_df = pd.DataFrame(
+    [
+        {
+            "PDF Module": "Network Traffic Monitoring",
+            "Implementation": "sniffer.py + dashboard overview",
+            "Status": "Complete",
+            "Highlights": "Live capture fallback, source and port analysis, protocol charts",
+        },
+        {
+            "PDF Module": "Intrusion Detection System",
+            "Implementation": "ids.py + threat monitor section",
+            "Status": "Complete",
+            "Highlights": "DoS, port scan, brute force, unauthorized access rules",
+        },
+        {
+            "PDF Module": "Web Vulnerability Scanner",
+            "Implementation": "scanner.py + web scanner section",
+            "Status": "Complete",
+            "Highlights": "Reflection checks, SQL-style error handling, headers, methods",
+        },
+        {
+            "PDF Module": "Log Monitoring and Alerts",
+            "Implementation": "logs.txt + threat monitor section",
+            "Status": "Complete",
+            "Highlights": "Structured logs, alert report export, centralized review panel",
+        },
+        {
+            "PDF Module": "Secure File Transfer",
+            "Implementation": "encryption.py + secure files section",
+            "Status": "Complete",
+            "Highlights": "Authenticated encryption with decrypt and download flow",
+        },
+        {
+            "PDF Module": "Attack Simulation",
+            "Implementation": "attack.py + sidebar controls",
+            "Status": "Complete",
+            "Highlights": "Safe demo scenarios for port scan, brute force, DoS, and mixed traffic",
+        },
+    ]
+)
+st.dataframe(mapping_df, width="stretch", hide_index=True)
+
+st.markdown("#### Demo Flow")
+st.markdown(
+    """
+    1. Load `Sample Baseline` traffic to show normal monitoring.
+    2. Switch to `Attack Simulation` and choose `Mixed Attack Demo` to generate alerts.
+    3. Review the `Threat Monitor` section to inspect IDS findings and exported alert reports.
+    4. Use the `Web Scanner` section for a lightweight defensive scan of a demo web app.
+    5. Use the `Secure Files` section to encrypt and decrypt a file during the presentation.
+    """
+)
