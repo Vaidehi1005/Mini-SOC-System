@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 
 from attack import available_profiles, generate_attack_traffic
-from encryption import decrypt_file, encrypt_with_generated_key
+from encryption import encrypt_with_generated_key, decrypt_file
 from ids import detect_attacks
 from scanner import scan_url, summarize_scan_results
 from sniffer import generate_sample_traffic, start_sniffing

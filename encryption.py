@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from cryptography.fernet import Fernet, InvalidToken
+from cryptography.fernet import Fernet
 
 
 def _normalize_key(key: bytes | str) -> bytes:
@@ -27,5 +27,5 @@ def decrypt_file(data: bytes, user_key: bytes | str) -> bytes:
     try:
         cipher = Fernet(_normalize_key(user_key))
         return cipher.decrypt(data)
-    except (ValueError, InvalidToken) as error:
-        raise ValueError("Invalid key or corrupted encrypted file.") from error
+    except Exception:
+        raise ValueError("Invalid key or corrupted encrypted file.")
